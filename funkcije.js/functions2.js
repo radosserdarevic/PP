@@ -1,206 +1,248 @@
-//1. zadatak
+//1
 
-function if_is_string(a) {
-    // var result = false;
+function stringOrNot(s) {
+  if (typeof s === "string") {
+    return true;
+  } else {
+    return false;
+  }
+}
 
-    if (typeof a == "string") {
-        return "String";
+//2
+
+function isBlank(s) {
+  if (typeof s === "string" && (s === "" || s === " ")) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+var str1 = isBlank("bilo sta");
+console.log(str1);
+
+//3
+
+function concatenate(a, b = 1) {
+  var s = "";
+  for (var i = 0; i < b; i++) {
+    s += a;
+  }
+  return s;
+}
+
+var nesto = concatenate("ha", 3);
+console.log(nesto);
+
+//4
+
+function occurrences(s, l) {
+  var sum = 0;
+  for (var i = 0; i < s.length; i++) {
+    if (s[i] === l) {
+      sum++;
+    }
+  }
+  return sum;
+}
+
+var sum = occurrences("Neki random string sa puno slova n.", "n");
+console.log(sum);
+
+//5
+
+function firstOccurr(s, c) {
+  var index;
+  for (var i = 0; i < s.length; i++) {
+    if (s[i] === c) {
+      index = i + 1;
+      break;
+    }
+  }
+  if (index) {
+    return index;
+  } else {
+    return -1;
+  }
+}
+
+var strrring = firstOccurr("Hajmo na kupanje", "H");
+console.log(strrring);
+
+//6
+
+function lastOccurr(s, c) {
+  var index;
+  for (var i = s.length; i >= 0; i--) {
+    if (s[i] === c) {
+      index = i + 1;
+      break;
+    }
+  }
+  if (index) {
+    return index;
+  } else {
+    return -1;
+  }
+}
+
+var strrring = lastOccurr("Hajdemo na kupanje", "e");
+console.log(strrring);
+
+//7
+
+function stringToArray(s) {
+  var arr = [];
+  for (var i = 0; i < s.length; i++) {
+    if (s[i] === " ") {
+      arr[i] = null;
     } else {
-        return "Nije string";
+      arr[i] = s[i];
     }
-    // return result;
+  }
+  return arr;
 }
-var final = if_is_string(NaN);
-console.log(final);
 
-//2. zadatak
+var arr = stringToArray("String to array!");
+console.log(arr);
 
-function a(a) {
-    result = true;
-    if (a == " ") {
-        result = true;
+//9
+
+function stringToSeparated(s, sep = "-") {
+  var arr = [];
+  for (var i = 0; i < s.length; i++) {
+    if (s[i] === " ") {
+      arr[i] = sep;
     } else {
-        result = false;
+      arr[i] = s[i];
     }
-    return result;
-}
-var final = a(" ");
-console.log(final);
-
-//3. zadatak
-
-function x(a, b) {
-    var i;
-    var res = '';
-    for (i = 1; i <= b; i++) {
-        res = res + a;
-    }
-    return res;
-
+  }
+  return arr;
 }
 
-console.log(x('Bla', 7));
+var arr = stringToSeparated("String to array!", "+");
+console.log(arr);
 
-//4. zadatak
+//10
 
-function x(a, b) {
-    var i;
-    var br = 0;
-
-    for (i = 0; i < a.length; i++) {
-        if (a[i] == b) {
-            br++;
-        }
-    }
-    return br;
-}
-console.log(x('aleksandare', 'e'));
-
-//5. i 6. zadatak
-
-function a(a, b) {
-    var i;
-    var rez = 0;
-
-    for (i = 0; i < a.length; i++) {
-        if (a[i] == b) {
-            rez = i + 1;
-            //5. zadatak break;
-        }
-    }
-
-    if (rez == 0) {
-        return -1;
-    } else {
-        return rez;
-    }
+function getN(s, n) {
+  var result = "";
+  for (var i = 0; i < n; i++) {
+    result += s[i];
+  }
+  result += "...";
+  return result;
 }
 
+var res = getN("Test string!", 4);
+console.log(res);
 
-console.log(a("kilmanm", "m"));
+//11
 
-//7. zadatak
-
-function x(a) {
-    var i;
-    var niz = [];
-
-    for (i = 0; i < a.length; i++) {
-        if (a[i] == ' ') {
-            niz[i] = null;
-
-        } else {
-            niz[i] = a[i];
-        }
+var test = ["1", "21", undefined, "42", "1e+3", Infinity];
+function filterOut(aos) {
+  var narr = [];
+  var i, ind;
+  var res;
+  for (i = 0, ind = 0; i < aos.length; i++) {
+    res = aos[i]; //* 1;
+    if (res !== undefined && res !== Infinity && res !== NaN) {
+      narr[ind] = res * 1;
+      ind++;
     }
-    return niz;
+  }
+  return narr;
 }
 
-console.log(x('Ana voli Milovana'));
+var res = filterOut(test);
+console.log(res);
 
-//8. zadatak
+//12
 
-function a(a) {
-    var i;
-    var rez = true;
-    for (i = 2; i < a / 2; i++) {
-        if (a % i == 0) {
-            rez = false;
-            break;
-        }
-    }
-    if (rez == true) {
-        return "Boj je prost"
-    } else {
-        return "Broj nije prost"
-    }
-}
-var h = a(15);
-console.log(h);
-
-//9. zadatak
-
-function replace(a, b) {
-    var i;
-    var st = "";
-    for (i = 0; i < a.length; i++) {
-        if (a[i] == " ") {
-
-            switch (b) {
-                case "+":
-                    st = st + b;
-                    break;
-                case "_":
-                    st = st + b;
-                    break;
-                default:
-                    st = st + "-";
-            }
-        } else {
-            st = st + a[i];
-        }
-    }
-    return st;
-}
-var h = replace("ana voli milovana", "");
-console.log(h);
-
-//10. zadatak
-
-function x(a, b) {
-    var i;
-    var res = '';
-
-    for (i = b; i < a.length; i++) {
-        res = res + a[i];
-    }
-    res = res + '...';
-    return res;
-}
-console.log(x('milovan', 3));
-
-//11. zadatak
-
-function x(a) {
-    //var a = ['1', '21', undefined, '42', '1e+3', Infinity];
-    var niz = [];
-    var i;
-    var s = 0;
-
-    for (i = 0; i < a.length; i++) {
-        if (isFinite(a[i])) {
-            niz[s] = parseFloat(a[i]);
-            s++;
-        }
-    }
-    return niz;
+function retirement(job, sex) {
+  var ret = 2018 - job;
+  var result;
+  switch (sex) {
+    case "m":
+    case "M":
+      result = 65 - ret;
+      if (result >= 65) {
+        console.log("Already retired!");
+      }
+      break;
+    case "f":
+    case "F":
+      result = 60 - ret;
+      if (result >= 60) {
+        console.log("Already retired!");
+      }
+      break;
+    default:
+      console.log("Wrong inputs!");
+  }
+  return result;
 }
 
-console.log(x([1, 5, 8, "ju", NaN, 87, 3, "56"])); // Pri unosu niza nije potrebno deklarisati niz u funkciji.
+var retired = retirement(1977, "m");
+console.log(retired);
 
-//12. zadatak
+console.log(NaN != NaN);
 
-function pen(a, b) {
-    var i;
-    var c = 2018 - a;
-    if (b == "f") {
-        if (60 - c > 0) {
-            return 60 - c;
-        } else {
-            return "Gospodja je vec u penziji"
-        }
-    } else if (b == "m") {
-        if (65 - c > 0) {
-            return 65 - c;
-        } else {
-            return "Gospodin je vec u penziji!"
-        }
-    } else {
-        return 'Pogresan unos!';
+//13
 
+function humanize(a) {
+  var n = a;
+  var res;
 
-    }
+  last_number = a % 10;
+  n = n - last_number;
+  switch (last_number) {
+    case 1:
+      if (n > 9) {
+        res = a + "th";
+      } else {
+        res = a + "st";
+      }
+      break;
+    case 2:
+      if (n > 9) {
+        res = a + "th";
+      } else {
+        res = a + "nd";
+      }
+      break;
+    case 3:
+      if (n > 9) {
+        res = a + "th";
+      } else {
+        res = a + "rd";
+      }
+      break;
+    default:
+      res = a + "th";
+  }
 
+  return res;
 }
 
-console.log(pen(1980, "m"));
+function humanize(a) {
+  var res;
+
+  switch (a) {
+    case 1:
+      res = a + "st";
+      break;
+    case 2:
+      res = a + "nd";
+      break;
+    case 3:
+      res = a + "rd";
+      break;
+    default:
+      res = a + "th";
+  }
+  return res;
+}
+
+var hum = humanize(111);
+console.log(hum);
