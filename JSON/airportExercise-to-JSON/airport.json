@@ -1,0 +1,43 @@
+{
+    "airport": {
+        "name": "John F.K",
+        "listOfflights": [
+            {
+                "relation": "Sremcica-NewYork",
+                "date": "10/11/2222",
+                "listOfpassengers": [
+                    {
+                        "person": {
+                            "name": "Rados",
+                            "surname": "Jr"
+                        },
+                        "seat": {
+                            "number": 34,
+                            "category": "e"
+                        }
+                    },
+                    {
+                        "person": {
+                            "name": "Stefan",
+                            "surname": "Tyson"
+                        },
+                        "seat": {
+                            "number": 15,
+                            "category": "a"
+                        }
+                    },
+                    {
+                        "person": {
+                            "name": "Gojko",
+                            "surname": "Vilicic"
+                        },
+                        "seat": {
+                            "number": 25,
+                            "category": "super-bussinnes"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}
